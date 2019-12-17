@@ -6,5 +6,5 @@ setup(name='metattack',
       author='Daniel Zügner, Stephan Günnemann',
       author_email='zuegnerd@in.tum.de',
       packages=['metattack'],
-      install_requires=['numpy', 'scipy', 'scikit-learn', 'matplotlib', 'tensorflow'],
+      install_requires=['numpy', 'scipy', 'scikit-learn', 'matplotlib', 'tensorflow', 'seaborn'],
 zip_safe=False)
