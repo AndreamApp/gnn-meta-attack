@@ -56,10 +56,10 @@ train_share = 1 - unlabeled_share - val_share
 np.random.seed(seed)
 
 split_train, split_val, split_unlabeled = utils.train_val_test_split_tabular(np.arange(_N),
-                                                                       train_size=train_share,
-                                                                       val_size=val_share,
-                                                                       test_size=unlabeled_share,
-                                                                       stratify=_z_obs)
+                                                                             train_size=train_share,
+                                                                             val_size=val_share,
+                                                                             test_size=unlabeled_share,
+                                                                             stratify=_z_obs)
 split_unlabeled = np.union1d(split_val, split_unlabeled)
 
 

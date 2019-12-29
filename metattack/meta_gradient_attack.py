@@ -8,12 +8,12 @@ Daniel Zügner
 Technical University of Munich
 """
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import numpy as np
 from metattack import utils
 import scipy.sparse as sp
-from tensorflow.contrib import slim
-
+from tensorflow.keras.initializers import glorot_uniform
+tf.disable_v2_behavior()
 try:
     from tqdm import tqdm
 except ImportError:
@@ -86,7 +86,7 @@ class GNNAttack:
                 if len(attrs_unique) > 2 or not np.allclose(attrs_unique, [0, 1]):
                     raise ValueError("Attacks on the node features are currently only supported for binary attributes.")
 
-            w_init = slim.xavier_initializer
+            w_init = glorot_uniform
             weights = []
             biases = []
             velocities = []
@@ -760,7 +760,7 @@ class GCNSparse:
                                   lambda: self.attributes_dropout,
                                   lambda: self.attributes) if self.dropout > 0. else self.attributes
 
-            w_init = slim.xavier_initializer
+            w_init = glorot_uniform
             self.weights = []
             self.biases = []
 
